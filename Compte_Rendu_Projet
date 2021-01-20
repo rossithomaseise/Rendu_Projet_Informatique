@@ -1,0 +1,38 @@
+•	Avancé du projet : 
+
+Mon programme est 100% autonome. 
+Il joue très bien contre DO_NOTHING en piochant des objectifs, des cartes face visible et dans le deck et en remplissant les objectifs. L’actualisation des coups de l’adversaire se fait très bien. Je n’ai seulement pas pris en compte la prise de route de la part de l’adversaire dans mon algorithme.
+De plus, mon code est bien commenté, ce qui permet une lecture fluide et plus compréhensible.
+
+•	Erreur :
+Je n’ai aucun WARNING et aucune erreur de segmentation dans le cours du jeu. Seul une erreur de segmentation 
+
+•	Construction du projet :
+
+Mon code est constitué de 3 parties : le fichier main.c, le fichier initialisation.c et le fichier jeu.c.
+Le fichier main.c permet la déclaration des variables, l’inclusion des fonctions d’initialisations et de jeu. Il contient également un corps de jeu avec une boucle while afin de prendre en compte le tour du joueur et de l’adversaire.
+
+Le fichier initialisation.c comprend comme son nom l’indique l’initialisation du jeu ainsi que la logique de jeu, c’est-à-dire l’ensemble des fonctions nécessaires pour jouer tel que la fonction action_coup qui me permet d’effectuer la pose d’une route, le pioche de cartes ou d’objectifs.
+Ce fichier possède également les fonctions d’affichage des informations des joueurs qui informe sur le score (fonction également présente dans ce fichier), le nombre de cartes, objectifs et wagons, la quantité pour chaque couleur ainsi que l’objectif actuel, le chemin pour y arriver et la route qui est actuellement choisie avec sa couleur.
+Il y a également une fonction qui permet de désallouer tous les structures nécessaires.
+Le fichier initialisation.h représente une partie importance du projet puisqu’il contient toutes les structures nécessaires au fonctionnement du jeu.
+Le fichier jeu.c comporte l’ensemble des algorithmes nécessaire afin de déterminer le plus court chemin. 
+Il comporte également la fonction de jeu du bot.
+
+•	Informations sur les structures
+
+Mon programme comporte 4 structures. 
+- Une structure plateauJeu afin de récupérer les informations du plateau comme le nombre de villes ou le nbTracks.
+- Une structure partie afin de récupérer tel que le numéro du tour et le numéro du joueur mais surtout les informations sur les routes (longueur, distance, couleur) ainsi que les cartes face visible.
+- Une structure joueur qui collectionne les informations tel que le nombre de wagons, carte en main, objectifs ainsi que d’autres variables nécessaires au fonctionnement.
+- Une structure choixCoup qui permet de renseigner les champs nécessaires pour la prise d’une route ainsi que pour les objectifs.
+
+•	Logique du jeu : 
+
+La logique est simple. Je prends les 2 plus importants objectifs en début de partie. Je classe les objectifs. Je commence par le plus grand. J’ai classé mes routes par ordre chronologique. L’algorithme choisit face visible les cartes de la couleur de la route que l’on veut prendre ou une locomotive. Sinon, elle pioche au hasard. 
+J’enchaine 2 objectifs, puis je pioche des cartes jusqu’à la fin.
+
+
+=> Pour compiler :
+
+gcc -g -c main.c TicketToRideAPI.c clientAPI.c initialisation.c jeu.c  && gcc -o main main.o TicketToRideAPI.o clientAPI.o initialisation.o jeu.o && ./main
